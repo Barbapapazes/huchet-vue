@@ -7,6 +7,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
+    "postinstall": "pnpm --filter '@barbapapazes/huchet-vue' run build && pnpm -r run dev:prepare",
     "release": "pnpm -r run lint && pnpm -r run typecheck && pnpm -r run test && jiti scripts/release.ts && pnpm -r run publish && git push --follow-tags"
   },
   "devDependencies": {
