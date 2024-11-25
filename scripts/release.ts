@@ -5,7 +5,7 @@ import { readJSONSync } from 'fs-extra'
 const { version: oldVersion } = readJSONSync('package.json')
 
 // Update the version in package.json
-execSync('bumpp --no-commit --no-tag --no-push', { stdio: 'inherit' })
+execSync('bumpp -r --no-commit --no-tag --no-push', { stdio: 'inherit' })
 
 const { version } = readJSONSync('package.json')
 
