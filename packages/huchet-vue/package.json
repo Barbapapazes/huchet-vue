@@ -1,6 +1,7 @@
 {
   "name": "@barbapapazes/huchet-vue",
   "type": "module",
+  "version": "0.0.0",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
