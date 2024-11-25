@@ -29,6 +29,9 @@
   "peerDependencies": {
     "vue": "^3.5.13"
   },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2"
+  },
   "devDependencies": {
     "@histoire/plugin-vue": "^0.17.17",
     "@nuxt/kit": "^3.14.1592",
@@ -44,8 +47,5 @@
     "vite-plugin-dts": "^4.3.0",
     "vitest": "^2.1.5",
     "vue": "^3.5.13"
-  },
-  "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.2"
   }
 }
