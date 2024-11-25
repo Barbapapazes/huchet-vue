@@ -1,7 +1,6 @@
 {
   "name": "@barbapapazes/huchet-vue",
   "type": "module",
-  "version": "0.0.0",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -22,7 +21,8 @@
     "build": "vite build",
     "watch": "vite build --watch",
     "typecheck": "vue-tsc -p tsconfig.app.json --noEmit",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepack": "pnpm run build",
     "publish": "pnpm publish --access public"
   },
