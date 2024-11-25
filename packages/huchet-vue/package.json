@@ -1,7 +1,7 @@
 {
   "name": "@barbapapazes/huchet-vue",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -25,7 +25,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepack": "pnpm run build",
-    "publish": "pnpm publish --access public"
+    "release:publish": "pnpm publish --access public"
   },
   "peerDependencies": {
     "vue": "^3.5.13"
