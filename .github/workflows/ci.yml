@@ -28,7 +28,7 @@ jobs:
         run: pnpm run lint
 
       - name: Type check
-        run: pnpm -r run typecheck
+        run: pnpm run typecheck
 
   build:
     name: Build
@@ -46,7 +46,7 @@ jobs:
         run: pnpm install
 
       - name: Generate files
-        run: pnpm -r run build
+        run: pnpm run build
 
   test:
     name: Test
@@ -64,4 +64,4 @@ jobs:
         run: pnpm install
 
       - name: Run tests
-        run: pnpm -r run test
+        run: pnpm run test

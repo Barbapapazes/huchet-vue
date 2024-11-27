@@ -9,7 +9,8 @@
     "lint:fix": "eslint --fix .",
     "build": "pnpm --filter './packages/**' prepack",
     "test": "pnpm --filter './packages/**' run test",
-    "release": "pnpm run lint && pnpm -r run typecheck && pnpm run test && changelogen --output CHANGELOG.md && jiti scripts/release.ts && pnpm -r run release:publish && git push --follow-tags"
+    "typecheck": "pnpm --filter './packages/**' run typecheck",
+    "release": "pnpm run lint && pnpm run typecheck && pnpm run test && changelogen --output CHANGELOG.md && jiti scripts/release.ts && pnpm -r run release:publish && git push --follow-tags"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.2",
