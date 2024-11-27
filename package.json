@@ -7,14 +7,15 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "release": "pnpm -r run lint && pnpm -r run typecheck && pnpm -r run test && changelogen --output CHANGELOG.md && jiti scripts/release.ts && pnpm -r run release:publish && git push --follow-tags"
+    "build": "pnpm --filter './packages/**' prepack",
+    "test": "pnpm --filter './packages/**' run test",
+    "release": "pnpm run lint && pnpm -r run typecheck && pnpm run test && changelogen --output CHANGELOG.md && jiti scripts/release.ts && pnpm -r run release:publish && git push --follow-tags"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.2",
     "bumpp": "^9.8.1",
     "changelogen": "^0.5.7",
     "eslint": "^9.15.0",
-    "eslint-plugin-tailwindcss": "^3.17.5",
     "fs-extra": "^11.2.0",
     "jiti": "^2.4.0",
     "typescript": "^5.7.2"
