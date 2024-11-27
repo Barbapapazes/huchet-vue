@@ -1,13 +1,13 @@
 {
   "name": "huchet-vue",
   "type": "module",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "release": "pnpm -r run lint && pnpm -r run typecheck && pnpm -r run test && changelogen && jiti scripts/release.ts && pnpm -r run release:publish && git push --follow-tags"
+    "release": "pnpm -r run lint && pnpm -r run typecheck && pnpm -r run test && changelogen --output CHANGELOG.md && jiti scripts/release.ts && pnpm -r run release:publish && git push --follow-tags"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.2",
