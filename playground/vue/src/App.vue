@@ -3,7 +3,7 @@
 
 <template>
   <div class="flex gap-6 p-6">
-    <Button label="Hello World" />
-    <Button label="Hello World" variant="outline" />
+    <UButton label="Hello World" />
+    <UButton label="Hello World" variant="outline" />
   </div>
 </template>

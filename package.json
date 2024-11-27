@@ -7,12 +7,12 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "postinstall": "pnpm --filter '@barbapapazes/huchet-vue' run build && pnpm -r run dev:prepare",
-    "release": "pnpm -r run lint && pnpm -r run typecheck && pnpm -r run test  && jiti scripts/release.ts && pnpm -r run release:publish && git push --follow-tags"
+    "release": "pnpm -r run lint && pnpm -r run typecheck && pnpm -r run test && changelogen && jiti scripts/release.ts && pnpm -r run release:publish && git push --follow-tags"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.9.2",
     "bumpp": "^9.8.1",
+    "changelogen": "^0.5.7",
     "eslint": "^9.15.0",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "fs-extra": "^11.2.0",

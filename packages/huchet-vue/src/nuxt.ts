@@ -1,10 +1,9 @@
-import type { } from '@nuxt/schema'
-import { addComponent, createResolver, defineNuxtModule, installModule } from '@nuxt/kit'
+import type { } from '@nuxt/schema' // Mandatory to avoid a bug when building
+import { addComponent, addVitePlugin, defineNuxtModule } from '@nuxt/kit'
 
 import { components } from './components'
 
 export interface ModuleOptions {
-  components: Partial<Record<keyof typeof components, boolean>> | boolean
   prefix: string
 }
 
@@ -13,43 +12,22 @@ export default defineNuxtModule<ModuleOptions>({
     name: '@barbapapazes/huchet-vue',
     configKey: 'huchet',
     compatibility: {
-      nuxt: '>=3.0.0',
+      nuxt: '>=3.13.1'
     },
   },
   defaults: {
     prefix: '',
-    components: true,
   },
   async setup(options, nuxt) {
-    const resolver = createResolver(import.meta.url)
-
-    // @ts-expect-error - tailwindcss:config hook is not available in the types
-    nuxt.hook('tailwindcss:config', (tailwindConfig) => {
-      tailwindConfig.content = tailwindConfig.content ?? { files: [] }
-      if (Array.isArray(tailwindConfig.content)) {
-        tailwindConfig.content.push(resolver.resolve('./index.mjs'))
-      }
-      else {
-        tailwindConfig.content.files.push(resolver.resolve('./index.mjs'))
-      }
-    })
-
-    await installModule('@nuxtjs/tailwindcss')
-
-    function getComponents() {
-      if (typeof options.components === 'object') {
-        return Object.entries(components)
-          .filter(([name]) => (options.components as Record<string, boolean>)[name])
-          .flatMap(([_, components]) => components)
-      }
-
-      if (options.components)
-        return Object.values(components)
-
-      return []
+    if (nuxt.options.builder === '@nuxt/vite-builder') {
+      const Tailwind = await import('@tailwindcss/vite').then(r => r.default)
+      addVitePlugin(Tailwind())
+    }
+    else {
+      nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
     }
 
-    for (const component of getComponents()) {
+    for (const component of Object.values(components)) {
       addComponent({
         name: `${options.prefix}${component}`,
         export: component,
