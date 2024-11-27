@@ -12,7 +12,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: '@barbapapazes/huchet-vue',
     configKey: 'huchet',
     compatibility: {
-      nuxt: '>=3.13.1'
+      nuxt: '>=3.13.1',
     },
   },
   defaults: {
