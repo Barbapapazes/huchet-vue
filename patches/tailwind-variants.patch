@@ -1,0 +1,27 @@
+diff --git a/package.json b/package.json
+index 8e5003604ceca304e738cc77296637df68a4542a..db25e1ebab926ae8b928123da267ce552ab1a11d 100644
+--- a/package.json
++++ b/package.json
+@@ -91,14 +91,18 @@
+   "module": "dist/index.js",
+   "exports": {
+     ".": {
+-      "require": "./dist/index.cjs",
++      "types": "./dist/index.d.ts",
+       "import": "./dist/index.js",
+-      "types": "./dist/index.d.ts"
++      "require": "./dist/index.cjs"
++    },
++    "./dist/*": {
++      "types": "./dist/*.d.ts",
++      "import": "./dist/*.js",
++      "require": "./dist/*.cjs"
+     },
+-    "./dist/*": "./dist/*",
+     "./transformer": {
+-      "require": "./dist/transformer.cjs",
+       "types": "./dist/transformer.d.ts",
++      "require": "./dist/transformer.cjs",
+       "default": "./dist/transformer.js"
+     },
+     "./package.json": "./package.json"

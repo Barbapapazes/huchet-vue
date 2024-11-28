@@ -20,5 +20,10 @@
     "fs-extra": "^11.2.0",
     "jiti": "^2.4.0",
     "typescript": "^5.7.2"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "tailwind-variants": "patches/tailwind-variants.patch"
+    }
   }
 }

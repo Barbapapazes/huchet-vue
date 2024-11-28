@@ -23,7 +23,7 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ['vue', '@nuxt/kit', '@tailwindcss/vite'],
+      external: ['vue', 'tailwind-variant', '@nuxt/kit', '@tailwindcss/vite'],
     },
   },
   test: {
