@@ -1,13 +1,13 @@
 import { execSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import process from 'node:process'
-import { readJSONSync } from 'fs-extra'
 
-const { version: oldVersion } = readJSONSync('package.json')
+const { version: oldVersion } = JSON.parse(readFileSync('package.json', 'utf-8'))
 
 // Update the version in package.json
 execSync('bumpp -r --no-commit --no-tag --no-push', { stdio: 'inherit' })
 
-const { version } = readJSONSync('package.json')
+const { version } = JSON.parse(readFileSync('package.json', 'utf-8'))
 
 if (oldVersion === version) {
   console.log('canceled')
